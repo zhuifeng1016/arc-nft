@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ArcNFT Architecture — Circle Ecosystem Integration</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'JetBrains Mono',monospace;background:#020617;min-height:100vh;padding:2rem;color:white}
+.container{max-width:1200px;margin:0 auto}
+.header{margin-bottom:2rem}
+.header-row{display:flex;align-items:center;gap:1rem;margin-bottom:.5rem}
+.pulse-dot{width:12px;height:12px;background:#22d3ee;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.5}}
+h1{font-size:1.5rem;font-weight:700;letter-spacing:-.025em}
+.subtitle{color:#94a3b8;font-size:.875rem;margin-left:1.75rem}
+.diagram-container{background:rgba(15,23,42,.5);border-radius:1rem;border:1px solid #1e293b;padding:1.5rem;overflow-x:auto}
+svg{width:100%;min-width:950px;display:block}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1rem;margin-top:2rem}
+.card{background:rgba(15,23,42,.5);border-radius:.75rem;border:1px solid #1e293b;padding:1.25rem}
+.card-header{display:flex;align-items:center;gap:.5rem;margin-bottom:.75rem}
+.card-dot{width:8px;height:8px;border-radius:50%}
+.card-dot.cyan{background:#22d3ee}
+.card-dot.emerald{background:#34d399}
+.card-dot.violet{background:#a78bfa}
+.card h3{font-size:.875rem;font-weight:600}
+.card ul{list-style:none;color:#94a3b8;font-size:.75rem}
+.card li{margin-bottom:.375rem}
+.footer{text-align:center;margin-top:1.5rem;color:#475569;font-size:.75rem}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="header">
+<div class="header-row"><div class="pulse-dot"></div><h1>ArcNFT: Circle Ecosystem Integration</h1></div>
+<p class="subtitle">USDC-powered smart contract deployment from Circle Developer Account to Arc Testnet</p>
+</div>
+
+<div class="diagram-container">
+<svg viewBox="0 0 1000 620">
+<defs>
+<marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/></marker>
+<marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#34d399"/></marker>
+<pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1e293b" stroke-width="0.5"/></pattern>
+</defs>
+
+<rect width="100%" height="100%" fill="url(#grid)"/>
+
+<!-- Region: Circle Developer Platform -->
+<rect x="20" y="20" width="960" height="580" rx="12" fill="rgba(34,211,238,0.03)" stroke="#22d3ee" stroke-width="1" stroke-dasharray="8,4"/>
+<text x="32" y="38" fill="#22d3ee" font-size="10" font-weight="600">Circle Developer Platform</text>
+
+<!-- Developer -->
+<rect x="40" y="80" width="130" height="60" rx="6" fill="rgba(30,41,59,0.5)" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="105" y="105" fill="white" font-size="11" font-weight="600" text-anchor="middle">Developer</text>
+<text x="105" y="121" fill="#94a3b8" font-size="9" text-anchor="middle">zhuifeng1016</text>
+
+<!-- Circle Account -->
+<rect x="220" y="80" width="150" height="60" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="295" y="105" fill="white" font-size="11" font-weight="600" text-anchor="middle">Circle Developer</text>
+<text x="295" y="121" fill="#94a3b8" font-size="9" text-anchor="middle">Circle Account + API Key</text>
+
+<!-- Faucet -->
+<rect x="420" y="80" width="130" height="60" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="485" y="105" fill="white" font-size="11" font-weight="600" text-anchor="middle">Circle Faucet</text>
+<text x="485" y="121" fill="#94a3b8" font-size="9" text-anchor="middle">20 USDC (Sepolia)</text>
+
+<!-- CCTP -->
+<rect x="600" y="80" width="140" height="60" rx="6" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1.5"/>
+<text x="670" y="105" fill="white" font-size="11" font-weight="600" text-anchor="middle">CCTP Bridge</text>
+<text x="670" y="121" fill="#94a3b8" font-size="9" text-anchor="middle">Sepolia→Arc</text>
+
+<!-- Arc Testnet Region -->
+<rect x="20" y="170" width="960" height="250" rx="12" fill="rgba(52,211,153,0.03)" stroke="#34d399" stroke-width="1" stroke-dasharray="8,4"/>
+<text x="32" y="188" fill="#34d399" font-size="10" font-weight="600">Arc Testnet (Chain ID 5042002) · Gas: USDC · RPC: rpc.testnet.arc.network</text>
+
+<!-- Wallet -->
+<rect x="40" y="210" width="180" height="70" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="130" y="235" fill="white" font-size="11" font-weight="600" text-anchor="middle">Arc Wallet</text>
+<text x="130" y="253" fill="#94a3b8" font-size="8" text-anchor="middle">0xBcA647...3E7f</text>
+<text x="130" y="268" fill="#94a3b8" font-size="8" text-anchor="middle">~17.94 USDC + EURC</text>
+
+<!-- DEX -->
+<rect x="260" y="210" width="160" height="70" rx="6" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1.5"/>
+<text x="340" y="235" fill="white" font-size="11" font-weight="600" text-anchor="middle">XyloNet DEX</text>
+<text x="340" y="253" fill="#94a3b8" font-size="8" text-anchor="middle">USDC ↔ EURC Swap</text>
+<text x="340" y="268" fill="#94a3b8" font-size="8" text-anchor="middle">+ LP Provision</text>
+
+<!-- Smart Contract -->
+<rect x="460" y="210" width="200" height="70" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="560" y="235" fill="white" font-size="11" font-weight="600" text-anchor="middle">ArcNFT Contract</text>
+<text x="560" y="253" fill="#94a3b8" font-size="8" text-anchor="middle">0xeb407E...089092</text>
+<text x="560" y="268" fill="#94a3b8" font-size="8" text-anchor="middle">Solidity 0.8 · mint()</text>
+
+<!-- ZNS -->
+<rect x="700" y="210" width="160" height="70" rx="6" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1.5"/>
+<text x="780" y="235" fill="white" font-size="11" font-weight="600" text-anchor="middle">ZNS Domain</text>
+<text x="780" y="253" fill="#94a3b8" font-size="8" text-anchor="middle">.ARC Registered</text>
+<text x="780" y="268" fill="#94a3b8" font-size="8" text-anchor="middle">7-in-1 Deploy All</text>
+
+<!-- Output: NFTs -->
+<rect x="40" y="320" width="820" height="70" rx="8" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1.5"/>
+<text x="450" y="348" fill="white" font-size="12" font-weight="600" text-anchor="middle">Minted NFTs (3 ANFT tokens) · 22+ Verified Transactions</text>
+<text x="450" y="368" fill="#94a3b8" font-size="9" text-anchor="middle">testnet.arcscan.app — Fully verifiable on-chain activity</text>
+
+<!-- Arrows: Developer → Circle -->
+<line x1="170" y1="110" x2="218" y2="110" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+<text x="194" y="104" fill="#22d3ee" font-size="8" text-anchor="middle">Register</text>
+
+<!-- Arrow: Circle → Faucet -->
+<line x1="370" y1="110" x2="418" y2="110" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+<text x="394" y="104" fill="#22d3ee" font-size="8" text-anchor="middle">Claim</text>
+
+<!-- Arrow: Faucet → CCTP -->
+<line x1="550" y1="110" x2="598" y2="110" stroke="#22d3ee" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+<text x="574" y="104" fill="#22d3ee" font-size="8" text-anchor="middle">Bridge</text>
+
+<!-- Arrow: CCTP → Wallet (curved) -->
+<path d="M 670 140 L 670 158 Q 670 168 660 168 L 140 168 Q 130 168 130 178 L 130 208" fill="none" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+<text x="400" y="174" fill="#34d399" font-size="9" text-anchor="middle">0.9999 USDC via CCTP</text>
+
+<!-- Arrow: Wallet → DEX -->
+<line x1="220" y1="245" x2="258" y2="245" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+<text x="239" y="239" fill="#94a3b8" font-size="8" text-anchor="middle">Swap</text>
+
+<!-- Arrow: Wallet → Contract -->
+<path d="M 220 245 Q 300 245 350 245 L 418 245" fill="none" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+<text x="360" y="239" fill="#94a3b8" font-size="8" text-anchor="middle">Deploy</text>
+
+<!-- Arrow: DEX → Contract -->
+<line x1="420" y1="245" x2="458" y2="245" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+<!-- Arrow: Contract → ZNS -->
+<line x1="660" y1="245" x2="698" y2="245" stroke="#a78bfa" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+<!-- Arrow: Contract → NFTs -->
+<line x1="560" y1="280" x2="560" y2="318" stroke="#fb7185" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+<text x="575" y="305" fill="#fb7185" font-size="8">Mint</text>
+
+<!-- Legend -->
+<text x="740" y="450" fill="white" font-size="10" font-weight="600">Legend</text>
+<rect x="740" y="462" width="16" height="10" rx="2" fill="rgba(8,51,68,0.4)" stroke="#22d3ee" stroke-width="1"/>
+<text x="762" y="470" fill="#94a3b8" font-size="8">Circle Platform</text>
+<rect x="740" y="478" width="16" height="10" rx="2" fill="rgba(6,78,59,0.4)" stroke="#34d399" stroke-width="1"/>
+<text x="762" y="486" fill="#94a3b8" font-size="8">Arc Testnet</text>
+<rect x="740" y="494" width="16" height="10" rx="2" fill="rgba(76,29,149,0.4)" stroke="#a78bfa" stroke-width="1"/>
+<text x="762" y="502" fill="#94a3b8" font-size="8">Smart Contract / ZNS</text>
+<rect x="740" y="510" width="16" height="10" rx="2" fill="rgba(136,19,55,0.3)" stroke="#fb7185" stroke-width="1"/>
+<text x="762" y="518" fill="#94a3b8" font-size="8">Output / Result</text>
+
+<!-- Future -->
+<rect x="20" y="460" width="700" height="120" rx="8" fill="rgba(251,191,36,0.05)" stroke="#fbbf24" stroke-width="1" stroke-dasharray="4,4"/>
+<text x="32" y="480" fill="#fbbf24" font-size="10" font-weight="600">Planned: Circle Nanopayments + ERC-721 Upgrade</text>
+<text x="40" y="502" fill="#94a3b8" font-size="9">• Phase 2: ERC-721 standard (OpenZeppelin) + on-chain metadata</text>
+<text x="40" y="520" fill="#94a3b8" font-size="9">• Phase 3: Batch mint + automated deployment scripts</text>
+<text x="40" y="538" fill="#94a3b8" font-size="9">• Phase 4: Circle Nanopayments API for paid minting (low-cost USDC micropayments)</text>
+<text x="40" y="556" fill="#94a3b8" font-size="9">• Phase 5: Web frontend + developer tutorial docs</text>
+</svg>
+</div>
+
+<div class="cards">
+<div class="card">
+<div class="card-header"><div class="card-dot cyan"></div><h3>Circle Products Integrated</h3></div>
+<ul>
+<li>• USDC — Gas & payment asset (22+ txns)</li>
+<li>• CCTP — Cross-chain (Sepolia→Arc, 0.9999 USDC)</li>
+<li>• Circle Developer Account — API key + wallet</li>
+<li>• Planned: Nanopayments API</li>
+</ul>
+</div>
+
+<div class="card">
+<div class="card-header"><div class="card-dot emerald"></div><h3>On-Chain Activity</h3></div>
+<ul>
+<li>• Contract: 0xeb407ED91...089092</li>
+<li>• Transactions: 22+ verified</li>
+<li>• Swaps: USDC↔EURC on XyloNet</li>
+<li>• LP: USDC/EURC pool</li>
+<li>• ZNS: .ARC domain (7-in-1)</li>
+</ul>
+</div>
+
+<div class="card">
+<div class="card-header"><div class="card-dot violet"></div><h3>Links</h3></div>
+<ul>
+<li>• GitHub: github.com/zhuifeng1016/arc-nft</li>
+<li>• Explorer: testnet.arcscan.app</li>
+<li>• Grant: circle.com/grant</li>
+<li>• License: MIT</li>
+</ul>
+</div>
+</div>
+
+<p class="footer">ArcNFT · Circle Developer Grant Application · July 2026</p>
+</div>
+</body>
+</html>
