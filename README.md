@@ -1,6 +1,6 @@
 # ArcNFT: A USDC-Powered Developer Reference on Arc
 
-A reference implementation demonstrating how Circle's infrastructure (USDC, CCTP, Developer Platform) enables a complete smart contract deployment workflow on Arc Testnet — from account provisioning to NFT asset issuance, all using stablecoin-native tooling.
+A reference implementation demonstrating how Circle's infrastructure (USDC, CCTP, Developer Platform) enables a complete smart contract deployment workflow on Arc Testnet — from account provisioning to smart contract deployment and proof-of-concept asset minting, all using stablecoin-native tooling.
 
 ## Why Circle
 
@@ -36,6 +36,8 @@ Arc's USDC-native design removes the traditional friction of managing multiple g
 | Explorer | https://testnet.arcscan.app/address/0xeb407ED91D9417Df8a1648088DF7790d8D689092 |
 | Wallet (22+ txns) | https://testnet.arcscan.app/address/0xBcA647eD0feD6fAF8527918B0B20A65Fc1633E7f |
 
+> Public repository includes: Solidity source code, ABI, deployment guide, and architecture diagram.
+
 ## Deployment Steps
 
 ### Prerequisites
@@ -66,10 +68,10 @@ Explorer: https://testnet.arcscan.app
 | Phase | Deliverable | Status |
 |-------|-------------|--------|
 | Phase 1 | Public repo + documentation + architecture diagram | ✅ Completed |
-| Phase 2 | ERC-721 standard upgrade (OpenZeppelin) + on-chain metadata | Planned |
-| Phase 3 | Batch mint + automated deployment scripts | Planned |
-| Phase 4 | Circle Nanopayments API integration for paid minting | Planned |
-| Phase 5 | Web frontend + developer tutorial documentation | Planned |
+| Phase 2 | ERC-721 standard upgrade (OpenZeppelin) + on-chain metadata | Planned — Publish ERC-721 implementation and migration guide |
+| Phase 3 | Batch mint + automated deployment scripts | Planned — Release Hardhat scripts and CLI tooling |
+| Phase 4 | Circle Nanopayments API integration for paid minting | Planned — Demonstrate USDC micropayment-gated minting |
+| Phase 5 | Web frontend + developer tutorial | Planned — Release public demo and onboarding guide |
 
 ## License
 
