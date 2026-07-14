@@ -1,6 +1,10 @@
-# ArcNFT: USDC-Powered Smart Contract Reference on Arc
+# ArcNFT: A USDC-Powered Developer Reference on Arc
 
-An end-to-end reference implementation demonstrating how Circle's infrastructure (USDC, CCTP, Wallet) enables smart contract deployment and stablecoin-native asset issuance on Arc Testnet.
+A reference implementation demonstrating how Circle's infrastructure (USDC, CCTP, Developer Platform) enables a complete smart contract deployment workflow on Arc Testnet — from account provisioning to NFT asset issuance, all using stablecoin-native tooling.
+
+## Why Circle
+
+Arc's USDC-native design removes the traditional friction of managing multiple gas assets. By combining USDC, CCTP, and Circle's developer tooling, developers can move value across chains and deploy applications using a consistent stablecoin-based workflow. This project demonstrates that experience through a minimal, reproducible implementation.
 
 ## Features
 
@@ -59,13 +63,13 @@ Explorer: https://testnet.arcscan.app
 
 ## Roadmap
 
-| Phase | Deliverable |
-|-------|-------------|
-| Phase 1 | Public repo + documentation (current) |
-| Phase 2 | ERC-721 standard upgrade (OpenZeppelin) |
-| Phase 3 | Batch mint + deployment scripts |
-| Phase 4 | Circle Nanopayments API integration |
-| Phase 5 | Web frontend + developer tutorial |
+| Phase | Deliverable | Status |
+|-------|-------------|--------|
+| Phase 1 | Public repo + documentation + architecture diagram | ✅ Completed |
+| Phase 2 | ERC-721 standard upgrade (OpenZeppelin) + on-chain metadata | Planned |
+| Phase 3 | Batch mint + automated deployment scripts | Planned |
+| Phase 4 | Circle Nanopayments API integration for paid minting | Planned |
+| Phase 5 | Web frontend + developer tutorial documentation | Planned |
 
 ## License
 
